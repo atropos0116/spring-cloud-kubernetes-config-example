@@ -1,6 +1,6 @@
 [1. minikube](#minikube)  
 [1.1 minikube 설치](#minikube-설치)  
-[1.2. ,inikube 실행](#,inikube-실행)  
+[1.2. inikube 실행](#,inikube-실행)  
 [1.3. service, pods, deployment 확인](#service,-pods,-deployment-확인)  
 [1.4. gcr을 이용한 service 실행](#Running-Container-in-Google-Cloud-Platform)  
 
