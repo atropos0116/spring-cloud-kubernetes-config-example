@@ -1,7 +1,7 @@
 [1. Minikube](#Minikube)
-[1.1 Minikube 설치 (Windows 10 Pro)](#Minikube 설치 (Windows 10 Pro))
+[1.1 Minikube 설치](#Minikube 설치 (Windows 10 Pro))
 [1.2. Minikube 실행](#Minikube 실행)
-[1.3. Service / Pods / Deployment 확인](#Service / Pods / Deployment 확인)
+[1.3. Service, Pods, Deployment 확인](#Service, Pods, Deployment 확인)
 [1.4. Running Container in Google Cloud Platform](#Running Container in Google Cloud Platform)
 
 
@@ -15,7 +15,7 @@ PowerShell (관리자 모드) 실행
 minikube strart
 ```
 
-## Service / Pods / Deployment 확인
+## Service, Pods, Deployment 확인
 ```
 kubectl get all
 ```
