@@ -1,26 +1,26 @@
-[1. Minikube](#Minikube)
-[1.1 Minikube 설치](#Minikube-설치)
-[1.2. Minikube 실행](#Minikube-실행)
-[1.3. Service, Pods, Deployment 확인](#Service,-Pods,-Deployment-확인)
-[1.4. Running Container in Google Cloud Platform](#Running-Container-in-Google-Cloud-Platform)
+[1. minikube](#minikube)  
+[1.1 minikube 설치](#minikube-설치)  
+[1.2. ,inikube 실행](#,inikube-실행)  
+[1.3. service, pods, deployment 확인](#service,-pods,-deployment-확인)  
+[1.4. gcr을 이용한 service 실행](#Running-Container-in-Google-Cloud-Platform)  
 
 
-# Minikube
-## Minikube 설치
+# minikube
+## minikube 설치
 https://kubernetes.io/ko/docs/tasks/tools/install-minikube/
 
-## Minikube 실행
+## minikube 실행
 PowerShell (관리자 모드) 실행
 ```
 minikube strart
 ```
 
-## Service, Pods, Deployment 확인
+## service, pods, deployment 확인
 ```
 kubectl get all
 ```
 
-## Running Container in Google Cloud Platform
+## gcr을 이용한 service 실행
 https://github.com/atropos0116/spring-boot-kubernetes-example-doc
 
 kube.yml
