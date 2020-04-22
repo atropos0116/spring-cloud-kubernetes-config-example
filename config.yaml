@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-example
+data:
+  application.yml: |-
+    welcome.message=Hello Spring Cloud from application.yml
+    message=Hi from application.yml

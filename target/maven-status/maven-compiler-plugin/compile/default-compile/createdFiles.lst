@@ -1,0 +1,5 @@
+spring\cloud\kubernetes\config\example\springcloudkubernetesconfigexample\SchedulerComponent.class
+spring\cloud\kubernetes\config\example\springcloudkubernetesconfigexample\SpringCloudKubernetesConfigExampleApplication.class
+spring\cloud\kubernetes\config\example\springcloudkubernetesconfigexample\WelcomeController.class
+META-INF\spring-configuration-metadata.json
+spring\cloud\kubernetes\config\example\springcloudkubernetesconfigexample\WelcomeConfiguration.class
