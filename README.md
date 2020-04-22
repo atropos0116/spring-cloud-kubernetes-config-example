@@ -8,16 +8,14 @@
 [2.1. 설치](#docker-설치)  
 
 [3. github package repository](#github-package-repository)  
-[3.1. docker file 생성](#docker-file-생성)
-[3.2. maven install](#Maven-install)
-[3.3. docker image 생성](#docker-image-생성)
-[3.4. docker container 실)(#docker-container-실행)
-[3.5. github access token 발행](#github-access-token-발행)
-[3.6. docker tag](#docker-tag)
-[3.7. docker push](#docker-push)
-[3.8. change new version](#change-new-version)
-
-
+[3.1. docker file 생성](#docker-file-생성)  
+[3.2. maven install](#Maven-install)  
+[3.3. docker image 생성](#docker-image-생성)  
+[3.4. docker container 실행](#docker-container-실행)  
+[3.5. github access token 발행](#github-access-token-발행)  
+[3.6. docker tag](#docker-tag)  
+[3.7. docker push](#docker-push)  
+[3.8. change new version](#change-new-version)  
 
 
 
