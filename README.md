@@ -1,11 +1,11 @@
-[1. minikube](#minikube)  
-[1.1 minikube 설치](#minikube-설치)  
-[1.2. minikube 실행](#minikube-실행)  
-[1.3. service, pods, deployment 확인](#service,-pods,-deployment-확인)  
-[1.4. gcr을 이용한 service 실행](#gcr을-이용한-service-실행)  
+[1. docker](#docker)  
+[1.1. 설치](#docker-설치) 
 
-[2. docker](#docker)  
-[2.1. 설치](#docker-설치)  
+[2. minikube](#minikube)  
+[2.1 minikube 설치](#minikube-설치)  
+[2.2. minikube 실행](#minikube-실행)  
+[2.3. service, pods, deployment 확인](#service,-pods,-deployment-확인)  
+[2.4. gcr을 이용한 service 실행](#gcr을-이용한-service-실행)  
 
 [3. github package repository](#github-package-repository)  
 [3.1. docker file 생성](#docker-file-생성)  
@@ -17,7 +17,16 @@
 [3.7. docker push](#docker-push)  
 [3.8. change new version](#change-new-version)  
 
+[4. skaffold](#skaffold)  
+[4.1. skaffold 설치](#skaffold-설치)  
+[4.2. skaffold yml 생성](#skaffold-yml-생성)  
+[4.3. skaffold 실행](#skaffold-실행)  
+[4.4. resource 변경 확인](#resource-변경-확인)  
 
+ # docker
+ ## docker 설치
+ https://www.docker.com/products/docker-desktop
+  
 
 # minikube
 ## minikube 설치
@@ -26,7 +35,7 @@ https://kubernetes.io/ko/docs/tasks/tools/install-minikube/
 ## minikube 실행
 PowerShell (관리자 모드) 실행
 ```
-minikube strart
+minikube strart -driver=docker
 ```
 
 ## service, pods, deployment-확인
@@ -75,11 +84,6 @@ spec:
     app: spring-boot-example
   type: LoadBalancer
   ```
-  
-  # docker
-  ## docker 설치
-  https://www.docker.com/products/docker-desktop
-  
   
   # github package repository
   sample source : https://github.com/atropos0116/container-demo
@@ -146,8 +150,123 @@ spec:
   docker push container-demo:v2 docker.pkg.github.com/atropos0116/container-demo/container-demo:v2
   ```
   
+  # skaffold
+  ## skaffold-설치 (windows)
+  ```
+  choco install skaffold
+  ```
+  ## skaffold yml 생성
   
+  skaffold.yaml
+  ```
+apiVersion: skaffold/v1
+kind: Config
+build:
+  artifacts:
+    - image: config-example
+      docker:
+        dockerfile: Dockerfile
+  local: {}
+
+deploy:
+  kubectl:
+    manifests:
+      - config.yaml
+      - deploy.yaml
+
+  ```
   
+  deploy.yaml
+  ```
+  kind: Service
+apiVersion: v1
+metadata:
+  name: config-example
+spec:
+  selector:
+    app: config-example
+  ports:
+    - protocol: TCP
+      port: 8080
+      nodePort: 30083
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: config-example
+spec:
+  selector:
+    matchLabels:
+      app: config-example
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: config-example
+    spec:
+      containers:
+        - name: config-example
+          image: config-example
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
+  ```
+  
+  config.yaml
+  ```
+  apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-example
+  namespace: default
+data:
+  application.yml: |-
+    welcome:
+      message: Hello Spring Cloud from application.yml
+    message: Hi from application.yml
+  ```
+  
+  application.yml
+  ```
+  logging.level.org.springframework.cloud.kubernetes: DEBUG
+spring.application.name: config-example
+
+management:
+  endpoints:
+    restart:
+      enabled: true
+    web:
+      exposure:
+        include: info,refresh,keepalive,health
+  ```
+  
+  bootstrap.yml
+  ```
+  spring:
+  cloud:
+    kubernetes:
+      config:
+        enabled: true
+        name: config-example
+        namepsace: default
+        sources:
+          - namespace: default
+            name: config-example
+      reload:
+        enabled: true
+        mode: event
+        strategy: refresh
+  ```
+  
+  ## skaffold 실행
+  ```
+  skaffold dev
+  ```
+    
+  ## resource 변경 확인
+  local 소스 변경 후 cmd 확인 
+  -> image 재 생성 및 빌드 후, 실행됨
   
   
 
