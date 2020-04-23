@@ -10,8 +10,7 @@
     {
       "name": "welcome.message",
       "type": "java.lang.String",
-      "sourceType": "spring.cloud.kubernetes.config.example.springcloudkubernetesconfigexample.WelcomeConfiguration",
-      "defaultValue": "Welcome to Spring Cloud"
+      "sourceType": "spring.cloud.kubernetes.config.example.springcloudkubernetesconfigexample.WelcomeConfiguration"
     }
   ],
   "hints": []

@@ -3,8 +3,10 @@ spring:
     kubernetes:
       config:
         enabled: true
+        name: config-example
+        namepsace: default
         sources:
-          - namespace: dafault
+          - namespace: default
             name: config-example
       reload:
         enabled: true
