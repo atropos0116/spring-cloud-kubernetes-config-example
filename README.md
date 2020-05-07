@@ -23,6 +23,10 @@
 [4.3. skaffold 실행](#skaffold-실행)  
 [4.4. resource 변경 확인](#resource-변경-확인)  
 
+[5. istio](#istio)
+
+[Appendex. 오류 해결](#오류 해결)
+
  # docker
  ## docker 설치
  https://www.docker.com/products/docker-desktop
@@ -269,7 +273,16 @@ management:
   -> image 재 생성 및 빌드 후, 실행됨
   
   
+  # istio
+  Todo..
+  
 
-
+  # 오류 해결
+  ```
+  Can't read configMap with name: [config-example] in namespace:[default]. Ignoring... 
+  ```
+  
+  Solution :
+      https://devopscube.com/kubernetes-api-access-service-account/
 
  
