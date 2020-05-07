@@ -25,7 +25,7 @@
 
 [5. istio](#istio)
 
-[Appendex. 오류 해결](#오류 해결)
+[Z. Appendex](#Appendex)
 
  # docker
  ## docker 설치
@@ -277,7 +277,7 @@ management:
   Todo..
   
 
-  # 오류 해결
+  # Appendex
   ```
   Can't read configMap with name: [config-example] in namespace:[default]. Ignoring... 
   ```
