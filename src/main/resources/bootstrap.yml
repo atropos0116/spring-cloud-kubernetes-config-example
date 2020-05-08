@@ -3,12 +3,15 @@ spring:
     kubernetes:
       config:
         enabled: true
+        enableApi: true
         name: config-example
-        namepsace: default
+        namespace: default
         sources:
           - namespace: default
             name: config-example
       reload:
         enabled: true
-        mode: event
+        mode: polling
         strategy: refresh
+
+
