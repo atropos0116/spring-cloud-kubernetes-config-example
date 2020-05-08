@@ -23,7 +23,7 @@
 [4.3. skaffold 실행](#skaffold-실행)  
 [4.4. resource 변경 확인](#resource-변경-확인)  
 
-[5. discovery client](#discovery-clinet)  
+[5. discovery client](#discovery-client)  
 [5.1. discovery client dependency](#discovery-client-dependency)  
 [5.2. discovery client annotation](#discovery-client-annotation)  
 [5.3. users-service 호출](#users-service-호출)  
