@@ -23,7 +23,7 @@
 [4.3. skaffold 실행](#skaffold-실행)  
 [4.4. resource 변경 확인](#resource-변경-확인)  
 
-[5. istio](#istio)
+[5. discovery client](#discovery-clinet)
 
 [Z. Appendex](#Appendex)
 
@@ -273,9 +273,60 @@ management:
   -> image 재 생성 및 빌드 후, 실행됨
   
   
-  # istio
-  Todo..
+  # discovery client
   
+  ## disvoery client dependency
+  spring-cloud-kubernetes-config-example/pom.xml 
+  ```
+		<dependency>
+   <groupId>org.springframework.cloud</groupId>
+	 		<artifactId>spring-cloud-starter-kubernetes</artifactId>
+		 	<version>1.1.0.RELEASE</version>
+		</dependency>
+  ```
+  
+  ## disovery client annotation
+  SpringCloudKubernetesConfigExampleApplication.java
+  ```
+  @EnableDiscoveryClient <----- add
+  @EnableScheduling
+  @SpringBootApplication
+  public class SpringCloudKubernetesConfigExampleApplication {
+  ...
+  
+  
+  	@Bean
+  	public RestTemplate restTemplate() {
+		    return new RestTemplate();
+	  }
+  ```
+  
+  ## users-service 호출
+  SchedulerComponent.java
+  ```
+  public void schedule() {
+     ...
+  
+     String url = "http://users-service:8080/users";
+     ResponseEntity<String> responseEntity = restTemplate.getForEntity(url, String.class);
+     System.out.println("Calling via Discovery Client... " + responseEntity.getBody());
+  }
+  ```
+  
+  ## discovery server
+  ```
+  git clone https://github.com/atropos0116/spring-cloud-kubernetes-server-example.git
+  ```
+  
+  ### discovery server skaffold run
+  ```
+  .../spring-cloud-kubernetes-server-example>skaffold run
+  ```
+  
+  ### discovery client skaffold dev
+  ```
+  .../spring-cloud-kubernetes-config-example>skaffold dev
+  ```
 
   # Appendex
   ```
