@@ -23,7 +23,13 @@
 [4.3. skaffold 실행](#skaffold-실행)  
 [4.4. resource 변경 확인](#resource-변경-확인)  
 
-[5. discovery client](#discovery-clinet)
+[5. discovery client](#discovery-clinet)  
+[5.1. discovery client dependency](#discovery-client-dependency)  
+[5.2. discovery client annotation](#discovery-client-annotation)  
+[5.3. users-service 호출](#users-service-호출)  
+[5.4. discovery server](#discovery-server)  
+[5.4.1. discovery server skaffold run](#discovery-server-skaffold-run)  
+[5.4.2. discovery clinet skaffold run](#discovery-client-skaffold-run)
 
 [Z. Appendex](#Appendex)
 
@@ -272,10 +278,9 @@ management:
   local 소스 변경 후 cmd 확인 
   -> image 재 생성 및 빌드 후, 실행됨
   
-  
   # discovery client
   
-  ## disvoery client dependency
+  ## discovery client dependency
   spring-cloud-kubernetes-config-example/pom.xml 
   ```
 		<dependency>
@@ -285,7 +290,7 @@ management:
 		</dependency>
   ```
   
-  ## disovery client annotation
+  ## discovery client annotation
   SpringCloudKubernetesConfigExampleApplication.java
   ```
   @EnableDiscoveryClient <----- add
