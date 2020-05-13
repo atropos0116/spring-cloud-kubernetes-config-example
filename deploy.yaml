@@ -27,7 +27,11 @@ spec:
     spec:
       containers:
         - name: config-example
-          image: config-example
-          imagePullPolicy: Never
+          image: atropos0116/config-example
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
+      volumes:
+        - name: welcome
+          configMap:
+            name: config-example

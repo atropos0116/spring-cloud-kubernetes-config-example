@@ -4,6 +4,6 @@ metadata:
   name: config-example
   namespace: default
 data:
-  application.properties: |-
+  application.properties: |
     welcome.message=Hello Spring Cloud from application.properties
     message=Hi from application.properties

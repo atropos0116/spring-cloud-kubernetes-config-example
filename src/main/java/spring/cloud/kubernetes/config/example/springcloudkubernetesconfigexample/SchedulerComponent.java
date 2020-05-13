@@ -21,6 +21,6 @@ public class SchedulerComponent {
 		
 		String url = "http://users-service:8080/users";
 		ResponseEntity<String> responseEntity = restTemplate.getForEntity(url, String.class);
-		System.out.println("Calling via Discovery Client... " + responseEntity.getBody());
+		System.out.println("Calling via Discovery Client1... " + responseEntity.getBody());
 	}
 }

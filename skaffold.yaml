@@ -2,9 +2,13 @@ apiVersion: skaffold/v1
 kind: Config
 build:
   artifacts:
-    - image: config-example
+    - image: atropos0116/config-example
       docker:
         dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: src/**/*.java
+            dest: .
   local: {}
 
 deploy:
