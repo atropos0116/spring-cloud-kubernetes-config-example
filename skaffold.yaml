@@ -1,14 +1,14 @@
 apiVersion: skaffold/v1
 kind: Config
 build:
+  tagPolicy:
+    dateTime:
+      format: "2020-05-13_13-13-32.999_MST"
+      timezone: "Local"
   artifacts:
     - image: atropos0116/config-example
       docker:
         dockerfile: Dockerfile
-      sync:
-        manual:
-          - src: src/**/*.java
-            dest: .
   local: {}
 
 deploy:
